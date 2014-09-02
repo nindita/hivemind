@@ -11,6 +11,7 @@ Features:
 * Max file size is 5MB
 * 100 threads maximum per board, 10 per page (10 pages)
 * 500 post maximum per thread
+* Board pages show 3 posts per thread
 * Posting returns the thread to spot #1, it sinks lower without any new posts
   * Popular threads tend to stay on the front page
 * threads that sink to position 101 or higher

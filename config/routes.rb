@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'application#index'
+  get '/:shortcode' => 'boards#show', as: 'board'
+  get '/:shortcode/:threadd_id' => 'threadds#show', as: 'threadd'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

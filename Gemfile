@@ -39,3 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'haml'
+gem 'will_paginate', '~> 3.0' # pagination
+gem 'paperclip', '~> 4.2' # file attachments
+gem 'bloggy'
+gem 'seed_dump'

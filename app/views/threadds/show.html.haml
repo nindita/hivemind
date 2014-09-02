@@ -1,0 +1,6 @@
+%h1= @thread.name
+- @thread.posts.each do |p|
+  %p
+    %span= p.id
+    >
+    %span= p.content

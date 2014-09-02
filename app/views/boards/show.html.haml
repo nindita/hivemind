@@ -1,0 +1,23 @@
+%h1
+  Name:
+  = @board.name
+%h2
+  Shortcode:
+  = @board.shortcode
+%hr
+%h3 Threads
+%hr
+- @threads.each do |t|
+  %h4
+    %span= t.id
+    %a{:href => threadd_path(:threadd_id => t.id)}
+      %span= t.name
+  %p
+    %span= t.posts.first.id
+    %span >
+    %span= t.posts.first.content
+  - t.posts.last(2).each do |p|
+    %p
+      %span= p.id
+      %span >
+      %span= p.content

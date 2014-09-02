@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Board.create!([
+  {name: "News", shortcode: "n"}
+])
+Post.create!([
+  {content: "First post!11!11!", threadd_id: 1},
+  {content: "another post!!", threadd_id: 1},
+  {content: "THIS IS THE THIRD POST YOU SHOULDNT SEE THIS UNLESS YOU'RE IN THE THREAD", threadd_id: 1},
+  {content: "Yet another post", threadd_id: 1},
+  {content: "The last post!!", threadd_id: 1}
+])
+Threadd.create!([
+  {name: "FIRST POST", board_id: 1}
+])

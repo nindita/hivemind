@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>BLOG_NAME</title>
+ <link href="YOUR_URL/atom.xml" rel="self"/>
+ <link href="YOUR_URL"/>
+ <updated>2014-09-03T08:45:48-04:00</updated>
+ <id>BLOG_URL</id>
+ <author>
+   <name>BLOG_NAME</name>
+ </author>
+
+ 
+ <entry>
+   <title>Just a Test</title>
+   <link href="YOUR_URL/a-test-post.html"/>
+   <updated>2014-01-11T00:00:00-05:00</updated>
+   <id>BLOG_URL/a-test-post</id>
+   <content type="html">&lt;p&gt;Just a test news post.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>
