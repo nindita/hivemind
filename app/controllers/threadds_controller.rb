@@ -22,6 +22,6 @@ class ThreaddsController < ApplicationController
     end
 
     def threadd_params
-      params.require(:threadd).permit(:name, posts_attributes: [:id, :content, :threadd_id, :_destroy])
+      params.require(:threadd).permit(:name, posts_attributes: [:id, :content, :threadd_id, :image, :_destroy])
     end
 end

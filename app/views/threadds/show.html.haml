@@ -1,9 +1,12 @@
-= form_for :post, url: new_post_path do |f|
+= form_for :post, url: new_post_path, :html => { :multipart => true } do |f|
   = f.text_area :content
+  = f.file_field :image
   = f.submit
 %h1= @threadd.name
 - @threadd.posts.each do |p|
   %p
+    - if p.image?
+      %a{:href => p.image.url}= image_tag p.image.url(:thumb)
     %span= p.id
     >
-    %span= p.content
+    %span= p.content.gsub('\n','<br>\n')

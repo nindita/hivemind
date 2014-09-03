@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903131913) do
+ActiveRecord::Schema.define(version: 20140903215226) do
 
   create_table "boards", force: true do |t|
     t.string   "name"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20140903131913) do
     t.integer  "threadd_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "threadds", force: true do |t|

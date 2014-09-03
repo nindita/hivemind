@@ -29,9 +29,13 @@
     %p
       %span= t.posts.first.id
       %span >
+      - if t.posts.first.image?
+        %a{:href => t.posts.first.image.url}= image_tag t.posts.first.image.url(:thumb)
       %span= t.posts.first.content
     - t.posts.last(2).each do |p|
       %p
         %span= p.id
         %span >
+        - if p.image?
+          %a{:href => p.image.url}= image_tag p.image.url(:thumb)
         %span= p.content
