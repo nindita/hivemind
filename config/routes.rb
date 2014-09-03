@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root 'application#index'
   get '/:shortcode' => 'boards#show', as: 'board'
-  get '/:shortcode/:threadd_id' => 'threadds#show', as: 'threadd'
+  get '/:shortcode/:id' => 'threadds#show', as: 'threadd'
+  post '/:shortcode/new' => 'threadds#new', as: 'new_threadd'
+  post '/:shortcode/:id/post' => 'posts#new', as: 'new_post'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

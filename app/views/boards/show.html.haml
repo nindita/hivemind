@@ -1,3 +1,15 @@
+%h1= flash[:error]
+%h1= flash[:alert]
+%h1= flash[:notice]
+%h1 New Thread
+= nested_form_for @new_threadd, url: new_threadd_path do |f|
+  - @new_threadd.posts.build
+  = f.label :name
+  = f.text_field :name
+  = f.fields_for :posts do |p|
+    = p.text_area :content
+  = f.submit
+%hr
 %h1
   Name:
   = @board.name
@@ -7,17 +19,19 @@
 %hr
 %h3 Threads
 %hr
-- @threads.each do |t|
+- @threadds.each do |t|
   %h4
     %span= t.id
-    %a{:href => threadd_path(:threadd_id => t.id)}
+    %a{:href => threadd_path(:id => t)}
       %span= t.name
-  %p
-    %span= t.posts.first.id
-    %span >
-    %span= t.posts.first.content
-  - t.posts.last(2).each do |p|
+  - if t.posts.empty?
+  - else
     %p
-      %span= p.id
+      %span= t.posts.first.id
       %span >
-      %span= p.content
+      %span= t.posts.first.content
+    - t.posts.last(2).each do |p|
+      %p
+        %span= p.id
+        %span >
+        %span= p.content

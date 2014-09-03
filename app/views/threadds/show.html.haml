@@ -1,5 +1,8 @@
-%h1= @thread.name
-- @thread.posts.each do |p|
+= form_for :post, url: new_post_path do |f|
+  = f.text_area :content
+  = f.submit
+%h1= @threadd.name
+- @threadd.posts.each do |p|
   %p
     %span= p.id
     >

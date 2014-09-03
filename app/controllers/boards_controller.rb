@@ -2,6 +2,7 @@ class BoardsController < ApplicationController
   before_action :set_board, only: [:show]
 
   def show
+    @new_threadd = Threadd.new
   end
 
   private
@@ -9,7 +10,7 @@ class BoardsController < ApplicationController
     def set_board
       if !Board.find_by(:shortcode => params[:shortcode]).nil?
         @board = Board.find_by(:shortcode => params[:shortcode])
-        @threads = @board.threadds.all
+        @threadds = @board.threadds.all
       else
         render :file => "#{Rails.root}/public/404.html",  :status => 404
       end

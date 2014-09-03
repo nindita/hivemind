@@ -38,8 +38,14 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem 'seed_dump'
+  gem 'better_errors'
+  gem 'binding_of_caller' # Great addition to better_errors
+end
+
 gem 'haml'
 gem 'will_paginate', '~> 3.0' # pagination
 gem 'paperclip', '~> 4.2' # file attachments
 gem 'bloggy'
-gem 'seed_dump'
+gem 'nested_form'
