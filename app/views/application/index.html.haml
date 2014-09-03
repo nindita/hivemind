@@ -1,1 +1,7 @@
-%h1 This is only a test
+%h1 Title
+%hr
+%h2 Boards:
+%ul
+  - Board.all.each do |b|
+    %li
+      %a{:href => board_path(b.shortcode)}= b.name
