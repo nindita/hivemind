@@ -1,9 +1,33 @@
-%h1 Title
-%hr
-%h2
-  %a{:href => '/blog/'} Blog
-%h2 Boards:
-%ul
-  - Board.all.each do |b|
-    %li
-      %a{:href => board_path(b.shortcode)}= b.name
+.row
+  .col-md-12
+    %h1
+      HIVEMIND
+      .text-muted.small ImageBoard
+.row
+  .col-md-12
+    .well
+      .h2 HIVEMIND is anonymous imageboard software.
+      .h3 To say it bluntly, it's early 4chan, but open source, and built with rails.
+      .h4.small.text-muted Anonymous meaning no usernames/passwords and anyone can post. We don't anonymize your IP address, we aren't routing through TOR, and if the feds come knocking, we'll share what we have.
+      .h4.small.text-muted Don't be an idiot.
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h2 Boards
+      .panel-body
+        - Board.all.sort_by{|board| board.name.downcase}.each_slice(3) do |group|
+          .row
+            - group.each do |b|
+              .col-md-4
+                %a{:href => board_path(b.shortcode)}
+                  %strong.h3
+                    = b.name
+                    \:
+                    = b.shortcode
+      .panel-footer
+        %p Want to see a new board? Send me a pull request.
+.row
+  .col-md-12
+    %hr
+      %p HIVEMIND ImageBoard is open source and licensed under the MIT License.

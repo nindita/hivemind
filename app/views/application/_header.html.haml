@@ -1,1 +1,28 @@
-header.html.haml
+%nav.navbar.navbar-default{:role => "navigation"}
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => root_path}
+        %strong HIVEMIND
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => "/blog"} Blog
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Boards
+            %span.caret
+          %ul.dropdown-menu{:role => "menu"}
+            - Board.all.sort_by{|board| board.name.downcase}.each do |b|
+              %li
+                %a{:href => board_path(b.shortcode)}
+                  = b.name
+                  \:
+                  = b.shortcode
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "#GITHUB"} Source

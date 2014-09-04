@@ -1,41 +1,79 @@
-%h1= flash[:error]
-%h1= flash[:alert]
-%h1= flash[:notice]
-%h1 New Thread
-= nested_form_for @new_threadd, url: new_threadd_path do |f|
-  - @new_threadd.posts.build
-  = f.label :name
-  = f.text_field :name
-  = f.fields_for :posts do |p|
-    = p.text_area :content
-  = f.submit
-%hr
-%h1
-  Name:
-  = @board.name
-%h2
-  Shortcode:
-  = @board.shortcode
-%hr
-%h3 Threads
+- if flash[:error]
+  .alert.alert-danger.alert-dismissible{:role => "alert"}
+    %button.close{"data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} &times;
+      %span.sr-only Close
+    %strong.h3.text-center= flash[:error]
+- if flash[:notice]
+  .alert.alert-info.alert-dismissible{:role => "alert"}
+    %button.close{"data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} &times;
+      %span.sr-only Close
+    %strong.h3.text-center= flash[:notice]
+.row
+  .col-md-6.text-center
+    %h1= @board.name
+  .col-md-6.text-center
+    .panel.panel-primary
+      .panel-heading
+        %h2 New Thread
+      .panel-body
+        = nested_form_for @new_threadd, url: new_threadd_path do |f|
+          - @new_threadd.posts.build
+          = f.text_field :name, :class => 'form-control', :placeholder => "Thread Name"
+          = f.fields_for :posts do |p|
+            = p.text_area :content, :class => 'form-control', :placeholder => "Your very insightful comment"
+          = f.submit "Create Thread", :class => 'btn btn-success'
 %hr
 - @threadds.each do |t|
-  %h4
-    %span= t.id
-    %a{:href => threadd_path(:id => t)}
-      %span= t.name
-  - if t.posts.empty?
-  - else
-    %p
-      %span= t.posts.first.id
-      %span >
-      - if t.posts.first.image?
-        %a{:href => t.posts.first.image.url}= image_tag t.posts.first.image.url(:thumb)
-      %span= t.posts.first.content
-    - t.posts.last(2).each do |p|
-      %p
-        %span= p.id
-        %span >
-        - if p.image?
-          %a{:href => p.image.url}= image_tag p.image.url(:thumb)
-        %span= p.content
+  .row
+    .col-md-12
+      .panel.panel-info
+        .panel-heading
+          %a{:href => threadd_path(:id => t)}
+            %h4
+              %strong
+                %span.text-success= t.id
+                %span >
+                %span= t.name
+        .panel-body
+          - if t.posts.empty?
+          - else
+            - if t.posts.first
+              - if t.posts.first.image?
+                .row.well-sm
+                  .col-md-2
+                    %a.pull-left{:href => t.posts.first.image.url}= image_tag t.posts.first.image.url(:thumb)
+                  .col-md-10
+                    %p
+                      %span.text-success= t.posts.first.id
+                      %span >
+                      %span= t.posts.first.content
+                %hr
+              - else
+                .row.well-sm
+                  .col-md-10.col-md-offset-2
+                    %p
+                      %span.text-success= t.posts.first.id
+                      %span >
+                      %span= t.posts.first.content
+                %hr
+            - t.posts.last(2).each do |p|
+              - if p.image?
+                .row.well-sm
+                  .col-md-2
+                    %a.pull-left{:href => p.image.url}= image_tag p.image.url(:thumb)
+                  .col-md-10
+                    %p
+                      %span.text-success= p.id
+                      %span >
+                      %span= p.content
+                %hr
+              - else
+                .row.well-sm
+                  .col-md-10.col-md-offset-2
+                    %p
+                      %span.text-success= p.id
+                      %span >
+                      %span= p.content
+                %hr
