@@ -1,12 +1,44 @@
-= form_for :post, url: new_post_path, :html => { :multipart => true } do |f|
-  = f.text_area :content
-  = f.file_field :image
-  = f.submit
-%h1= @threadd.name
+- if flash[:error]
+  .alert.alert-danger.alert-dismissible{:role => "alert"}
+    %button.close{"data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} &times;
+      %span.sr-only Close
+    %strong.h3.text-center= flash[:error]
+- if flash[:notice]
+  .alert.alert-info.alert-dismissible{:role => "alert"}
+    %button.close{"data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} &times;
+      %span.sr-only Close
+    %strong.h3.text-center= flash[:notice]
+.row
+  .col-md-6.text-center
+    %h1= @threadd.name
+  .col-md-6.text-center
+    .panel.panel-primary
+      .panel-heading
+        %h2 New Post
+      .panel-body
+        = form_for :post, url: new_post_path, :html => { :multipart => true } do |f|
+          = f.text_area :content, :class => 'form-control', :placeholder => 'Your very insightful comment'
+          = f.file_field :image
+          = f.submit "Create Post", :class => 'btn btn-success'
+%hr
 - @threadd.posts.each do |p|
-  %p
-    - if p.image?
-      %a{:href => p.image.url}= image_tag p.image.url(:thumb)
-    %span= p.id
-    >
-    %span= p.content.gsub('\n','<br>\n')
+  - if p.image?
+    .row.well-sm
+      .col-md-2
+        %a.pull-left{:href => p.image.url}= image_tag p.image.url(:thumb)
+      .col-md-10
+        %p
+          %span.text-success= p.id
+          %span >
+          %span= p.content
+    %hr
+  - else
+    .row.well-sm
+      .col-md-10.col-md-offset-2
+        %p
+          %span.text-success= p.id
+          %span >
+          %span= p.content
+    %hr
