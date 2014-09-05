@@ -8,6 +8,7 @@
   = f.text_field :name
   = f.fields_for :posts do |p|
     = p.text_area :content
+    = p.file_field :image
   = f.submit
 %hr
 %h1
