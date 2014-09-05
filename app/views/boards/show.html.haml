@@ -50,7 +50,9 @@
                       %span.text-success= t.posts.first.id
                       %span >
                       %span= t.posts.first.content
-                %hr
+                - if t.posts.count == 1
+                - else
+                  %hr
               - else
                 .row.well-sm
                   .col-md-10.col-md-offset-2
@@ -58,23 +60,48 @@
                       %span.text-success= t.posts.first.id
                       %span >
                       %span= t.posts.first.content
-                %hr
-            - t.posts.last(2).each do |p|
-              - if p.image?
+                - if t.posts.count == 1
+                - else
+                  %hr
+            - if t.posts.count == 1
+            - elsif t.posts.count == 2
+              - if t.posts.last.image?
                 .row.well-sm
                   .col-md-2
-                    %a.pull-left{:href => p.image.url}= image_tag p.image.url(:thumb)
+                    %a.pull-left{:href => t.posts.last.image.url}= image_tag t.posts.last.image.url(:thumb)
                   .col-md-10
                     %p
-                      %span.text-success= p.id
+                      %span.text-success= t.posts.last.id
                       %span >
-                      %span= p.content
-                %hr
+                      %span= t.posts.last.content
               - else
                 .row.well-sm
                   .col-md-10.col-md-offset-2
                     %p
-                      %span.text-success= p.id
+                      %span.text-success= t.posts.last.id
                       %span >
-                      %span= p.content
-                %hr
+                      %span= t.posts.last.content
+            - else
+              - t.posts.last(2).each do |p|
+                - if p.image?
+                  .row.well-sm
+                    .col-md-2
+                      %a.pull-left{:href => p.image.url}= image_tag p.image.url(:thumb)
+                    .col-md-10
+                      %p
+                        %span.text-success= p.id
+                        %span >
+                        %span= p.content
+                  - if p === t.posts.last
+                  - else
+                    %hr
+                - else
+                  .row.well-sm
+                    .col-md-10.col-md-offset-2
+                      %p
+                        %span.text-success= p.id
+                        %span >
+                        %span= p.content
+                  - if p === t.posts.last
+                  - else
+                    %hr
