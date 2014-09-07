@@ -5,10 +5,14 @@ class PostsController < ApplicationController
     @new_post = Post.new(post_params)
     @new_post.threadd_id = @threadd.id
     respond_to do |format|
-      if @new_post.save
-        format.html { redirect_to threadd_path(:id => @new_post.threadd_id), notice: 'Posted!' }
+      if @threadd.posts.count < 500
+        if @new_post.save
+          format.html { redirect_to threadd_path(:id => @new_post.threadd_id), notice: 'Posted!' }
+        else
+          format.html { redirect_to threadd_path(:id => @new_post.threadd_id), alert: 'Can\'t be blank' }
+        end
       else
-        format.html { redirect_to threadd_path(:id => @new_post.threadd_id) }
+        format.html { redirect_to threadd_path(:id => @new_post.threadd_id), alert: 'Thread post limit reached (500)' }
       end
     end
   end
