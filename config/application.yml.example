@@ -1,1 +1,6 @@
-just_a_test: "See? It works!"
+# ReCaptcha Options
+recaptcha_public_key: "1234"
+recaptcha_private_key: "5678"
+# recaptcha_proxy: "http://www.example.com:80"
+# Replace blank key with one generated from `rake secret`
+secret_key_base:

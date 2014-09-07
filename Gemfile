@@ -51,3 +51,4 @@ gem 'paperclip', '~> 4.2' # file attachments
 gem 'bloggy' # static blog for site-wide news
 gem 'nested_form' # for new threads and posts off of the main board object
 gem 'figaro', :git => 'https://github.com/laserlemon/figaro.git' # control environment variables
+gem 'recaptcha'

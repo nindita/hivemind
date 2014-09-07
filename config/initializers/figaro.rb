@@ -1,1 +1,1 @@
-Figaro.require_keys("just_a_test")
+Figaro.require_keys("recaptcha_public_key", "recaptcha_private_key", "secret_key_base")

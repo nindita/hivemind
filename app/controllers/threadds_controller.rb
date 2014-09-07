@@ -8,10 +8,14 @@ class ThreaddsController < ApplicationController
     @new_threadd = Threadd.new(threadd_params)
     @new_threadd.board_id = Board.find_by(:shortcode => params[:shortcode]).id
     respond_to do |format|
-      if @new_threadd.save
-        format.html { redirect_to threadd_path(:id => Threadd.all.last), notice: 'New thread started' }
+      if verify_recaptcha
+        if @new_threadd.save
+          format.html { redirect_to threadd_path(:id => Threadd.all.last), notice: 'New thread started' }
+        else
+          format.html { redirect_to board_path, alert: 'Name and/or Comment can\'t be blank' }
+        end
       else
-        format.html { redirect_to board_path }
+        format.html { redirect_to board_path, alert: 'Captcha Failed!' }
       end
     end
   end
