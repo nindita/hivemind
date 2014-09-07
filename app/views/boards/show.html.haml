@@ -26,7 +26,7 @@
             = p.file_field :image
           = f.submit "Create Thread", :class => 'btn btn-success'
 %hr
-- @board.threadds_by_post_id.first(100).each do |t|
+- @threadds.each do |t|
   .row
     .col-md-12
       .panel.panel-info
@@ -105,3 +105,6 @@
                   - if p === t.posts.last
                   - else
                     %hr
+.row
+  .col-md-12.text-center
+    = will_paginate @threadds, renderer: BootstrapPagination::Rails

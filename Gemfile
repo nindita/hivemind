@@ -49,3 +49,4 @@ gem 'will_paginate', '~> 3.0' # pagination
 gem 'paperclip', '~> 4.2' # file attachments
 gem 'bloggy'
 gem 'nested_form'
+gem 'will_paginate-bootstrap'
