@@ -1,4 +1,15 @@
-Board.create!([
-  {name: "News", shortcode: "n", description: "The latest news, politics, current events, happenings, and discussions. A few rules: Stay on topic. Don't flood the board with low-quality material. Keep it safe for work. Speak your opinion, do not mince words."},
-  {name: "Random", shortcode: "b", description: "Totally random. Post anything legal in here. Things here are deemed unsafe for work, life, and general consumption. Click things in here at your own risk."}
-])
+3.times do
+  Board.create!([
+    {name: Faker::App.name, shortcode: Faker::Lorem.word.downcase, description: Faker::Company.bs}
+  ])
+end
+50.times do
+  Threadd.create([
+    {name: Faker::Hacker.verb + " " + Faker::Hacker.adjective + " " + Faker::Hacker.noun + " thread!", board_id: rand(1..3)}
+    ])
+end
+1000.times do
+  Post.create([
+    {content: Faker::Hacker.say_something_smart, image: Faker::Avatar.image, threadd_id: rand(1..50)}
+    ])
+end

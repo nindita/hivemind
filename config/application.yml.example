@@ -4,3 +4,7 @@ recaptcha_private_key: "5678"
 # recaptcha_proxy: "http://www.example.com:80"
 # Replace blank key with one generated from `rake secret`
 secret_key_base:
+# Put your postgresql credentials here
+database_name: "hivemind"
+database_user: "hiveminduser"
+database_password: "reallylongpassphrasethatshouldntbecrackedwithnormalmethods"

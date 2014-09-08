@@ -17,3 +17,4 @@
 
 # Ignore sensitive configuration items
 /config/application.yml
+/config/database.yml
