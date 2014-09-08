@@ -8,9 +8,9 @@ layout: nil
  <link href="YOUR_URL/atom.xml" rel="self"/>
  <link href="YOUR_URL"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>BLOG_URL</id>
+ <id>HIVEMIND Blog</id>
  <author>
-   <name>BLOG_NAME</name>
+   <name>SamuraiLink3</name>
  </author>
 
  {% for post in site.posts %}
