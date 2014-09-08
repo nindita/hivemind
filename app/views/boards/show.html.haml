@@ -25,7 +25,7 @@
           = f.fields_for :posts do |p|
             = p.text_area :content, :class => 'form-control', :placeholder => "Your very insightful comment"
             = p.file_field :image
-          = recaptcha_tags
+          = recaptcha_tags(ajax: true)
           = f.submit "Create Thread", :class => 'btn btn-success'
 %hr
 - @threadds.each do |t|

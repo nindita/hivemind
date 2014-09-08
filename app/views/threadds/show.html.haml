@@ -21,7 +21,7 @@
         = form_for :post, url: new_post_path, :html => { :multipart => true } do |f|
           = f.text_area :content, :class => 'form-control', :placeholder => 'Your very insightful comment'
           = f.file_field :image
-          = recaptcha_tags
+          = recaptcha_tags(ajax: true)
           = f.submit "Create Post", :class => 'btn btn-success'
 %hr
 - @threadd.posts.each do |p|
