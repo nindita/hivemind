@@ -52,7 +52,7 @@
                     %p
                       %span.text-success= t.posts.first.id
                       %span >
-                      %span= t.posts.first.content
+                      %span= markdown(t.posts.first.content)
                 - if t.posts.count == 1
                 - else
                   %hr
@@ -62,7 +62,7 @@
                     %p
                       %span.text-success= t.posts.first.id
                       %span >
-                      %span= t.posts.first.content
+                      %span= markdown(t.posts.first.content)
                 - if t.posts.count == 1
                 - else
                   %hr
@@ -76,14 +76,14 @@
                     %p
                       %span.text-success= t.posts.last.id
                       %span >
-                      %span= t.posts.last.content
+                      %span= markdown(t.posts.last.content)
               - else
                 .row.well-sm
                   .col-md-10.col-md-offset-2
                     %p
                       %span.text-success= t.posts.last.id
                       %span >
-                      %span= t.posts.last.content
+                      %span= markdown(t.posts.last.content)
             - else
               - t.posts.last(2).each do |p|
                 - if p.image?
