@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-md-6">
+<%= markdown("
+# This is markdown
+## It lets you format text
+### Pretty easily
+
+Linebreaks
+are
+easy
+
+[Links are pretty easy too](https://samurailink3.com)
+Only safe protocols are shown.
+
+> Quotes are
+pretty easy too
+>> Even
+>>nested
+quotes
+
+Use an empty line to end a quote.
+
+You can add *emphasis* to __certain__ ***points***.
+But this_does_not_count
+
+1. you
+1. can
+1. make
+1. ordered lists
+    1. numbering is automatic
+
+* unordered
+    * lists
+        * too
+
+```ruby
+require 'coderay'
+Use backticks for code
+```
+
+Or you can use `inline` backticks
+
+----------
+
+Horizontal rules are pretty rad
+
+https://samurailink3.com  <- links are automatically linkified
+
+Use `\\\\` to escape \\*characters\\*
+
+")%>
+  </div>
+  <div class="col-md-6">
+    <pre>
+      # This is markdown
+      ## It lets you format text
+      ### Pretty easily
+
+      Linebreaks
+      are
+      easy
+
+      [Links are pretty easy too](http://samurailink3.com)
+      Only safe protocols are shown.
+
+      > Quotes are
+      pretty easy too
+      >> Even
+      >>nested
+      quotes
+
+      Use an empty line to end a quote.
+
+      You can add *emphasis* to __certain__ ***points***.
+      But this_does_not_count
+
+      1. you
+      1. can
+      1. make
+      1. ordered lists
+          1. numbering is automatic
+
+      * unordered
+          * lists
+              * too
+
+      ```ruby
+      require 'coderay'
+      Use backticks for code
+      ```
+
+      Or you can use `inline` backticks
+
+      ----------
+
+      Horizontal rules are pretty rad
+
+      http://samurailink3.com  <- links are automatically linkified
+
+      Use `\\\\` to escape \\*characters\\*
+    </pre>
+  </div>
+</div>

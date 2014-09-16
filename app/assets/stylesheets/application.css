@@ -23,7 +23,7 @@
     font-weight: normal;
     font-style: normal;
 }
-p{
+p, a, li, input, textarea{
   font-family: 'montserratregular', Arial, sans-serif !important;
   font-size: 10pt;
 }

@@ -24,6 +24,7 @@
           = f.text_field :name, :class => 'form-control', :placeholder => "Thread Name"
           = f.fields_for :posts do |p|
             = p.text_area :content, :class => 'form-control', :placeholder => "Your very insightful comment"
+            = link_to "Formatting Help", markdown_help_path
             = p.file_field :image
           = recaptcha_tags(ajax: true)
           = f.submit "Create Thread", :class => 'btn btn-success'
@@ -93,7 +94,7 @@
                       %p
                         %span.text-success= p.id
                         %span >
-                        %span= p.content
+                        %span= markdown(p.content)
                   - if p === t.posts.last
                   - else
                     %hr
@@ -103,7 +104,7 @@
                       %p
                         %span.text-success= p.id
                         %span >
-                        %span= p.content
+                        %span= markdown(p.content)
                   - if p === t.posts.last
                   - else
                     %hr

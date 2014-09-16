@@ -20,6 +20,7 @@
       .panel-body
         = form_for :post, url: new_post_path, :html => { :multipart => true } do |f|
           = f.text_area :content, :class => 'form-control', :placeholder => 'Your very insightful comment'
+          = link_to "Formatting Help", markdown_help_path
           = f.file_field :image
           = recaptcha_tags(ajax: true)
           = f.submit "Create Post", :class => 'btn btn-success'
@@ -33,7 +34,7 @@
         %p
           %span.text-success= p.id
           %span >
-          %span= p.content
+          %span= markdown(p.content)
     %hr
   - else
     .row.well-sm
@@ -41,5 +42,5 @@
         %p
           %span.text-success= p.id
           %span >
-          %span= p.content
+          %span= markdown(p.content)
     %hr

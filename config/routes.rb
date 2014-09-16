@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'application#index'
+  get '/markdown_help' => 'application#markdown_help', as: 'markdown_help'
   get '/:shortcode' => 'boards#show', as: 'board'
   get '/:shortcode/:id' => 'threadds#show', as: 'threadd'
   post '/:shortcode/new' => 'threadds#new', as: 'new_threadd'

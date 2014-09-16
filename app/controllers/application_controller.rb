@@ -7,4 +7,7 @@ class ApplicationController < ActionController::Base
     render layout: 'blank'
   end
 
+  def markdown_help
+  end
+
 end

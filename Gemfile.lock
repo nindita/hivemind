@@ -224,6 +224,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bloggy
+  coderay
   coffee-rails (~> 4.0.0)
   faker
   figaro!
@@ -235,6 +236,7 @@ DEPENDENCIES
   pg
   rails (= 4.1.1)
   recaptcha
+  redcarpet
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   seed_dump
