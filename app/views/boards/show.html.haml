@@ -40,6 +40,13 @@
                 %span.text-success= t.id
                 %span >
                 %span= t.name
+                %span.small (
+                %span.small Posts:
+                %span.small= t.posts.count
+                %span.small /
+                %span.small Images:
+                %span.small= t.posts_with_image.count
+                %span.small )
         .panel-body
           - if t.posts.empty?
           - else
