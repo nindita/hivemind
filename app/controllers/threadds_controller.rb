@@ -2,6 +2,7 @@ class ThreaddsController < ApplicationController
   before_action :set_thread, only: [:show]
 
   def show
+    @title = "/" + @threadd.board.shortcode + "/" + @threadd.id.to_s
   end
 
   def new

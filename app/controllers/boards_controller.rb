@@ -4,6 +4,7 @@ class BoardsController < ApplicationController
 
   def show
     @new_threadd = Threadd.new
+    @title = "/" + @board.shortcode + "/"
   end
 
   private

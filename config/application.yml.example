@@ -8,3 +8,6 @@ secret_key_base:
 database_name: "hivemind"
 database_user: "hiveminduser"
 database_password: "reallylongpassphrasethatshouldntbecrackedwithnormalmethods"
+# If you would like to use Piwik for stats, set this to 'true'.
+# You will need to put YOUR Piwik code in /app/views/application/piwik.html
+enable_piwik: "true"

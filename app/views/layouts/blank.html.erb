@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HIVEMIND</title>
+  <title><% if @title %><%= @title %><% else %>HIVEMIND<% end %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link data-turbolinks-track="true" href="/assets/bootstrap.min.css" media="all" rel="stylesheet" />
@@ -13,6 +13,8 @@
 <div class="container">
   <%= yield %>
 </div>
-
+<% if ENV['enable_piwik'] == "true" %>
+  <%= render 'piwik' %>
+<% end %>
 </body>
 </html>
