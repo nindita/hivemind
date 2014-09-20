@@ -19,6 +19,15 @@
       .h3 To say it bluntly, it's early 4chan, but open source, and built with rails.
       .h4.small.text-muted Anonymous meaning no usernames/passwords and anyone can post. We don't anonymize your IP address, we aren't routing through TOR, and if the feds come knocking, we'll share what we have.
       .h4.small.text-muted Don't be an idiot.
+- if ENV['announcement'] == "false"
+- else
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading
+          %h2 Announcement
+        .panel-body
+          %p.text-danger= ENV['announcement']
 .row
   .col-md-12
     .panel.panel-default

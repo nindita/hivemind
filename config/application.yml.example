@@ -15,3 +15,5 @@ enable_piwik: "true"
 S3_BUCKET_NAME:
 AWS_ACCESS_KEY_ID:
 AWS_SECRET_ACCESS_KEY:
+# To make an announcement on the front page, set the string below. If you want to disable the announcement, set it to "false"
+announcement: "false"
