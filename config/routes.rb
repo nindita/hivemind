@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'application#index'
   get '/markdown_help' => 'application#markdown_help', as: 'markdown_help'
+  get '/the_rules' => 'application#the_rules', as: 'the_rules'
   get '/:shortcode' => 'boards#show', as: 'board'
   get '/:shortcode/:id' => 'threadds#show', as: 'threadd'
   post '/:shortcode/new' => 'threadds#new', as: 'new_threadd'

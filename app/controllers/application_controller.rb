@@ -10,4 +10,7 @@ class ApplicationController < ActionController::Base
   def markdown_help
   end
 
+  def the_rules
+  end
+
 end
