@@ -11,3 +11,7 @@ database_password: "reallylongpassphrasethatshouldntbecrackedwithnormalmethods"
 # If you would like to use Piwik for stats, set this to 'true'.
 # You will need to put YOUR Piwik code in /app/views/application/piwik.html
 enable_piwik: "true"
+# Put your amazon S3 credentials here for image storage
+S3_BUCKET_NAME:
+AWS_ACCESS_KEY_ID:
+AWS_SECRET_ACCESS_KEY:

@@ -55,3 +55,4 @@ gem 'figaro', :git => 'https://github.com/laserlemon/figaro.git' # control envir
 gem 'recaptcha'
 gem 'redcarpet'
 gem 'coderay'
+gem 'aws-sdk'
